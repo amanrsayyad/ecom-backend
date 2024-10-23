@@ -8,11 +8,20 @@ const connectDB = require("./config/db.js");
 dotenv.config();
 
 const app = express();
+
 connectDB();
 
 const PORT = process.env.PORT || 5000;
 
-app.use(cors());
+// Configure CORS
+const allowedOrigins = ["https://startling-dango-d584ac.netlify.app/"];
+app.use(
+  cors({
+    origin: allowedOrigins,
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    credentials: true,
+  })
+);
 app.use(express.json());
 
 //ROUTES
