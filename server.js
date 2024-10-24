@@ -14,14 +14,7 @@ connectDB();
 const PORT = process.env.PORT || 5000;
 
 // Configure CORS
-const allowedOrigins = ["https://startling-dango-d584ac.netlify.app/"];
-app.use(
-  cors({
-    origin: allowedOrigins,
-    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-    credentials: true,
-  })
-);
+app.use(cors());
 app.use(express.json());
 
 //ROUTES
